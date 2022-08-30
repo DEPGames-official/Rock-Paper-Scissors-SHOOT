@@ -29,7 +29,20 @@ namespace Rock_Paper_Scissors_SHOOT
 
         private void RPCTimer_Tick(object sender, EventArgs e)
         {
-
+            if (RPCText.Text == "Rock")
+            {
+                RPCText.Text = "Paper";
+            }
+            else if (RPCText.Text == "Paper")
+            {
+                RPCText.Text = "Scissors!";
+            }
+            else
+            {
+                RPCText.Text = "SHOOT!";
+                RPCTimer.Enabled = false;
+            }
+            
         }
     }
 }
