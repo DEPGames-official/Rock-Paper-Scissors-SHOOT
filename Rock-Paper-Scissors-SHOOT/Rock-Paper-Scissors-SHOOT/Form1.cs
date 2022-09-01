@@ -84,9 +84,7 @@ namespace Rock_Paper_Scissors_SHOOT
             {
                 Results.Text = "Paper: Lost, Try Again?";
             }
-            RockSelect.Enabled = false;
-            PaperSelect.Enabled = false;
-            ScissorsSelect.Enabled = false;
+            EnableDisableRPCButtons(false);
 
             RPCText.Text = "Rock";
             RPCTimer.Interval = 2000;
@@ -108,9 +106,7 @@ namespace Rock_Paper_Scissors_SHOOT
             {
                 Results.Text = "Scissors: Lost, Try Again?";
             }
-            RockSelect.Enabled = false;
-            PaperSelect.Enabled = false;
-            ScissorsSelect.Enabled = false;
+            EnableDisableRPCButtons(false);
 
             RPCText.Text = "Rock";
             RPCTimer.Interval = 1500;
@@ -133,13 +129,18 @@ namespace Rock_Paper_Scissors_SHOOT
                 Results.Text = "Rock: Lost, Try Again?";
             }
 
-            RockSelect.Enabled = false;
-            PaperSelect.Enabled = false;
-            ScissorsSelect.Enabled = false;
+            EnableDisableRPCButtons(false);
 
             RPCText.Text = "Rock";
             RPCTimer.Interval = 2000;
             RPCTimer.Enabled = true;
+        }
+
+        private void EnableDisableRPCButtons(bool enabled)
+        {
+            RockSelect.Enabled = enabled;
+            PaperSelect.Enabled = enabled;
+            ScissorsSelect.Enabled = enabled;
         }
     }
 }
