@@ -20,13 +20,27 @@ namespace Rock_Paper_Scissors_SHOOT
 
         public void button1_Click(object sender, EventArgs e)
         {
-            RPCText.Text = "Rock";
-            RPCTimer.Interval = 2000;
-            RPCTimer.Enabled = true;
+            RPCText.Visible = true;
 
-           
+            Results.Visible = false;
+
+            RPCText.Text = "Select Rock, Paper, or Scissors";
+            RPCText.Font = new Font("Segoe UI", 30);
+            
+            RockSelect.Visible = true;
+            RockSelect.Enabled = true;
+
+            PaperSelect.Visible = true;
+            PaperSelect.Enabled = true;
+
+            ScissorsSelect.Visible = true;
+            ScissorsSelect.Enabled = true;
+            
+            StartGameButton.Visible = false;
         }
 
+        Random randomRPC = new Random();
+        int number;
         private void RPCTimer_Tick(object sender, EventArgs e)
         {
             if (RPCText.Text == "Rock")
@@ -37,12 +51,95 @@ namespace Rock_Paper_Scissors_SHOOT
             {
                 RPCText.Text = "Scissors!";
             }
-            else
+            else if (RPCText.Text == "Scissors!")
             {
                 RPCText.Text = "SHOOT!";
+                
+            }
+            else
+            {
                 RPCTimer.Enabled = false;
+                RPCText.Visible = false;
+
+                Results.Visible = true;
+
+                StartGameButton.Visible = true;
             }
             
+        }
+
+        
+        private void RockSelect_Click(object sender, EventArgs e)
+        {
+            number = randomRPC.Next(3);
+            if (number == 1)
+            {
+                Results.Text = "Rock: Tie";
+            }
+            else if (number == 3)
+            {
+                Results.Text = "Scissors: Congratulations You WON!";
+            }
+            else
+            {
+                Results.Text = "Paper: Lost, Try Again?";
+            }
+            RockSelect.Enabled = false;
+            PaperSelect.Enabled = false;
+            ScissorsSelect.Enabled = false;
+
+            RPCText.Text = "Rock";
+            RPCTimer.Interval = 2000;
+            RPCTimer.Enabled = true;
+        }
+
+        private void PaperSelect_Click(object sender, EventArgs e)
+        {
+            number = randomRPC.Next(3);
+            if (number == 2)
+            {
+                Results.Text = "Paper: Tie";
+            }
+            else if (number == 1)
+            {
+                Results.Text = "Rock: Congratulations You WON!";
+            }
+            else
+            {
+                Results.Text = "Scissors: Lost, Try Again?";
+            }
+            RockSelect.Enabled = false;
+            PaperSelect.Enabled = false;
+            ScissorsSelect.Enabled = false;
+
+            RPCText.Text = "Rock";
+            RPCTimer.Interval = 1500;
+            RPCTimer.Enabled = true;
+        }
+
+        private void ScissorsSelect_Click(object sender, EventArgs e)
+        {
+            number = randomRPC.Next(3);
+            if (number == 3)
+            {
+                Results.Text = "Scissors: Tie";
+            }
+            else if (number == 2)
+            {
+                Results.Text = "Paper: Congratulations You WON!";
+            }
+            else
+            {
+                Results.Text = "Rock: Lost, Try Again?";
+            }
+
+            RockSelect.Enabled = false;
+            PaperSelect.Enabled = false;
+            ScissorsSelect.Enabled = false;
+
+            RPCText.Text = "Rock";
+            RPCTimer.Interval = 2000;
+            RPCTimer.Enabled = true;
         }
     }
 }
